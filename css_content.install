@@ -1,0 +1,68 @@
+<?php
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function css_content_install() {
+    // Create demo vocab for manage CSS content.
+    $vocab_name = 'CSS Content';
+    $vocab_vid = 'css_content';
+
+    $vocab_entity = Vocabulary::create([
+        'vid' => $vocab_vid,
+        'name' => $vocab_name,
+        'description' => '',
+      ]);
+    $vocab_entity->save();
+
+    // Vocab properties. 
+    $vocab_id = $vocab_entity->id(); 
+    // Terms to be added.
+    $components = [
+      'Item' => [
+        'content-css' => 'css-c-item',
+        'children' => [
+          'Item 1' => ['content-css' => 'css-c-item-1'],
+          'Item 2' => ['content-css' => 'css-c-item-2'],
+        ],
+      ],
+    ];
+  
+    foreach ($components as $pname => $pattr) {
+      $term = Term::create([
+        'parent' => [],
+        'name' => $pname,
+        'vid' => $vocab_id,
+        // 'field_content_class' => $pattr['content-css'],
+        'weight' => array_search($pname, array_keys($components)),
+      ]);
+      $term->save();
+  
+      $pid = $term->id();
+      $children = $pattr['children'];
+      foreach ($children as $cname => $cattr) {
+        $term = Term::create([
+          'parent' => $pid,
+          'name' => $cname,
+          'vid' => $vocab_id,
+        //   'field_content_class' => $cattr['content-css'],
+          'weight' => array_search($cname, array_keys($children)),
+        ]);
+        $term->save();
+      }
+    }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function css_content_uninstall() {
+ // Delete demo vocab during uninstall.
+ $vocab = Vocabulary::load('css_content');
+ if ($vocab) {
+   $vocab->delete();
+ }
+}

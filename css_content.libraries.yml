@@ -1,0 +1,3 @@
+style:
+  js:
+    js/build/cssContent.js: { minified: true }

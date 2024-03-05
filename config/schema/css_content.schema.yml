@@ -1,0 +1,35 @@
+# Plugin \Drupal\css_content\Plugin\CKEditor5Plugin\Style
+ckeditor5.plugin.ckeditor5_style:
+  type: mapping
+  label: Style
+  mapping:
+    vocab:
+      type: string
+      label: 'Vocabulary ID'
+    styles:
+      type: sequence
+      orderby: ~
+      label: 'Styles'
+      constraints:
+        NotBlank:
+          message: "Enable at least one vocab style, otherwise disable the Style plugin."
+        UniqueLabelInList:
+          labelKey: label
+      sequence:
+        type: mapping
+        label: 'Style'
+        mapping:
+          label:
+            type: required_label
+            label: 'Style label'
+          element:
+            type: ckeditor5.element
+            constraints:
+              # Validate that this contains exactly 1 attribute (class) and >=1 class attr value.
+              CKEditor5Element:
+                requiredAttributes:
+                  -
+                    attributeName: class
+                    minAttributeValueCount: 1
+              StyleSensibleElement: []
+            label: 'Style tag + classes'

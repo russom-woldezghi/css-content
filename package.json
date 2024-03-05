@@ -1,0 +1,39 @@
+{
+  "name": "css-content-ckeditor5",
+  "version": "1.0.0",
+  "description": "Drupal CKEditor5 css class management",
+  "author": "Russom Woldezghi",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "watch": "webpack --mode development --watch",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@ckeditor/ckeditor5-dev-utils": "^30.0.0",
+    "ckeditor5": "~34.1.0",
+    "npm-watch": "^0.11.0",
+    "raw-loader": "^4.0.2",
+    "terser-webpack-plugin": "^5.2.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.4.0"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "js/ckeditor5_plugins/*"
+      ],
+      "extensions": "js,jsx"
+    }
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-basic-styles": "^36.0.1",
+    "@ckeditor/ckeditor5-core": "^36.0.1",
+    "@ckeditor/ckeditor5-editor-classic": "^36.0.1",
+    "@ckeditor/ckeditor5-essentials": "^36.0.1",
+    "@ckeditor/ckeditor5-heading": "^36.0.1",
+    "@ckeditor/ckeditor5-list": "^36.0.1",
+    "@ckeditor/ckeditor5-paragraph": "^36.0.1",
+    "@ckeditor/ckeditor5-theme-lark": "^36.0.1",
+    "@ckeditor/ckeditor5-ui": "^36.0.1"
+  }
+}

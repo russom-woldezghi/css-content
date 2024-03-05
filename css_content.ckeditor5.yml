@@ -1,0 +1,33 @@
+# See schema file, this string `ckeditor5.plugin.css_content_style`
+# is needed to match key below, notice `css_content_style` 
+# and `ckeditor5.plugin` because its extending ckeditor5 plugin config.
+
+# css_content_style:
+#   # provider: css_content
+#   ckeditor5:
+#     plugins:
+#       # foldernamebeforesrc.ExportName
+#       - cssContent.CssContent
+#   drupal:
+#     label: CSS Content
+#     class: \Drupal\css_content\Plugin\CKEditor5Plugin\CssContent
+#     library: css_content/style
+#     # admin_library: css_content/admin
+#     toolbar_items:
+#       cssContent:
+#         label: CSS Content
+#     elements: false
+css_content_style:
+  ckeditor5:
+    plugins: []
+    config: []
+  drupal:
+    label: Style
+    class: Drupal\css_content\Plugin\CKEditor5Plugin\CssContent
+    library: false
+    admin_library: false
+    elements:
+      - <a class>
+    conditions:
+      plugins:
+        - ckeditor5_style

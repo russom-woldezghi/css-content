@@ -1,0 +1,7 @@
+type: module
+name: CSS Content
+description: Allows users to apply managed CSS class as content in CKEditor.
+package: Ckeditor
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:ckeditor5
