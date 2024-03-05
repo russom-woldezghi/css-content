@@ -26,20 +26,15 @@ class CssContent extends CKEditor5PluginDefault implements CKEditor5PluginConfig
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    $form['styles'] = [
-      '#title' => $this->t('Link Styles'),
-      '#type' => 'textarea',
-      '#description' => $this->t('A list of classes that will be provided as Link Styles. Enter one or more classes on each line in the format: a.classA.classB|Label. Example: a.btn|Button. Advanced example: a.btn.large-button|Large Button.<br />These link styles should be available in your theme\'s CSS file.'),
-    ];
-    if (!empty($this->configuration['styles'])) {
-      $as_selectors = '';
-      foreach ($this->configuration['styles'] as $style) {
-        [$tag, $classes] = self::getTagAndClasses(HTMLRestrictions::fromString($style['element']));
-        $as_selectors .= sprintf("%s.%s|%s\n", $tag, implode('.', $classes), $style['label']);
-      }
-      $form['styles']['#default_value'] = $as_selectors;
-    }
+    $options = ['term_1', 'term_2'];
 
+    $form['vocab'] = array(
+        '#type' => 'select',
+        '#title' => t('Content Styles'),
+        '#multiple' => true,
+        '#options' => $options,
+        '#description' => t('Add created vocab/term styles.'),
+      );
     return $form;
 
   }
