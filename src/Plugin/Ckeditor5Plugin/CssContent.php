@@ -9,7 +9,6 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefault;
 use Drupal\ckeditor5\Plugin\CKEditor5PluginConfigurableInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\editor\EditorInterface;
-use Drupal\ckeditor5\Plugin\CKEditor5Plugin\Style;
 use Drupal\ckeditor5\Plugin\CKEditor5PluginElementsSubsetInterface;
 
 /**
@@ -18,7 +17,6 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginElementsSubsetInterface;
 class CssContent extends CKEditor5PluginDefault implements CKEditor5PluginConfigurableInterface, CKEditor5PluginElementsSubsetInterface {
 
   use CKEditor5PluginConfigurableTrait;
-
 
   use CKEditor5PluginConfigurableTrait;
 
@@ -36,7 +34,6 @@ class CssContent extends CKEditor5PluginDefault implements CKEditor5PluginConfig
         '#description' => t('Add created vocab/term styles.'),
       );
     return $form;
-
   }
 
   /**
@@ -83,6 +80,4 @@ class CssContent extends CKEditor5PluginDefault implements CKEditor5PluginConfig
     }
     return ['<>'];
   }
-
-
 }
