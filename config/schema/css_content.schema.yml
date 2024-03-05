@@ -1,5 +1,5 @@
 # Plugin \Drupal\css_content\Plugin\CKEditor5Plugin\Style
-ckeditor5.plugin.ckeditor5_style:
+ckeditor5.plugin.css_content_style:
   type: mapping
   label: Style
   mapping:
