@@ -13,8 +13,9 @@ ckeditor5.plugin.css_content_style:
       constraints:
         NotBlank:
           message: "Enable at least one vocab style, otherwise disable the Style plugin."
-        UniqueLabelInList:
-          labelKey: label
+        # @todo add validation for enabled vocabs
+        # UniqueLabelInList:
+        #   labelKey: label
       sequence:
         type: mapping
         label: 'Style'
