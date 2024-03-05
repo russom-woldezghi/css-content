@@ -8,7 +8,7 @@ CSS options are sourced from content entities (for example terms), to allow for 
 Text filters provide option to automatically update, track components using css content.
 
 ## todo
-- [] Extend styles Drupal plugin, allow for content configuration setup
-- [] Handling limited HTML allowed ckeditor configuration, passing array to styles ckeditor5 package
-- [] Demo vocab creation
-- [] Plugin validation
+-[] Extend styles Drupal plugin, allow for content configuration setup
+-[] Handling limited HTML allowed ckeditor configuration, passing array to styles ckeditor5 package
+-[] Demo vocab creation
+-[] Plugin validation
